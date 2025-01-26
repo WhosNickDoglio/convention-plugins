@@ -10,7 +10,7 @@ contributions to this project.
 
 # Your First Contribution
 
-Check out any [open issues](https://github.com/WhosNickDoglio/dagger-rules/issues), anything
+Check out any [open issues](https://github.com/WhosNickDoglio/convention-plugins/issues), anything
 labeled "help wanted" is up for grabs, if you see another issue you're interested in feel free to
 comment on and see if it's available to be worked on.
 
