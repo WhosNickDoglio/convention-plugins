@@ -13,7 +13,8 @@ plugins {
     alias(libs.plugins.kover)
     alias(libs.plugins.sortDependencies)
     alias(libs.plugins.testKit)
-    //    alias(libs.plugins.publish)
+    alias(libs.plugins.bestPractices)
+    alias(libs.plugins.publish)
     `java-gradle-plugin`
 }
 
@@ -26,7 +27,7 @@ dependencyGuard { configuration("classpath") }
 doctor { warnWhenNotUsingParallelGC = false }
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
-tasks.updateDaemonJvm.configure { jvmVersion.set(JavaLanguageVersion.of(libs.versions.jdk.get())) }
+tasks.updateDaemonJvm.configure { jvmVersion = JavaLanguageVersion.of(libs.versions.jdk.get()) }
 
 kotlin {
     explicitApi()
@@ -40,7 +41,7 @@ gradlePlugin {
     plugins {
         register("convention.kotlin") {
             id = "dev.whosnickdoglio.convention.kotlin"
-            implementationClass = "dev.whosnickdoglio.buildlogic.LintPlugin"
+            implementationClass = "dev.whosnickdoglio.convention.KotlinPlugin"
         }
     }
 }
@@ -74,6 +75,8 @@ spotless {
         endWithNewline()
     }
 }
+
+tasks.named<ValidatePlugins>("validatePlugins").configure { enableStricterValidation = true }
 
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {

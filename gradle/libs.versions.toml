@@ -21,6 +21,7 @@ kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 testKit = { id = "com.autonomousapps.testkit", version = "0.11" }
 publish = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
+bestPractices = { id = "com.autonomousapps.plugin-best-practices-plugin", version = "0.10" }
 
 [libraries]
 spotless-gradle = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }
