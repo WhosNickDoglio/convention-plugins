@@ -27,7 +27,7 @@ package dev.whosnickdoglio.convention
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-internal class GradlePluginProjectPlugin: Plugin<Project> {
+internal class GradlePluginProjectPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         // base stuff
         // java-gradle-plugin
