@@ -8,5 +8,6 @@ public abstract class ConventionExtension
 @Inject
 constructor(private val objectFactory: ObjectFactory) {
 
-  public val kover: Property<Boolean> = objectFactory.property(Boolean::class.java).convention(true)
+    public val kover: Property<Boolean> =
+        objectFactory.property(Boolean::class.java).convention(true)
 }

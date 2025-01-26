@@ -44,9 +44,11 @@ com.android.tools:sdklib:31.8.0
 com.android:signflinger:8.8.0
 com.android:zipflinger:8.8.0
 com.autonomousapps.dependency-analysis:com.autonomousapps.dependency-analysis.gradle.plugin:2.7.0
+com.autonomousapps.testkit:com.autonomousapps.testkit.gradle.plugin:0.11
 com.autonomousapps:antlr:4.13.2.0
 com.autonomousapps:asm-relocated:9.7.1.0
 com.autonomousapps:dependency-analysis-gradle-plugin:2.7.0
+com.autonomousapps:gradle-testkit-plugin:0.11
 com.autonomousapps:graph-support:0.5
 com.autonomousapps:kotlin-editor-relocated:0.18.0
 com.diffplug.durian:durian-collect:1.2.0

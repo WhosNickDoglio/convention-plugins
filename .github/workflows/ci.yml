@@ -63,7 +63,7 @@ jobs:
         with:
           encryption_key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
       - name: Run Unit Tests
-        run: ./gradlew kover-aggregate:koverXmlReport --no-build-cache
+        run: ./gradlew koverXmlReport --no-build-cache
       - name: Codecov
         uses: codecov/codecov-action@1e68e06f1dbfde0e4cefc87efeba9e4643565303 # v5.1.2
         with:

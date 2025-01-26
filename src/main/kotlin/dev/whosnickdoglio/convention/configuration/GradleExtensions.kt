@@ -5,7 +5,7 @@ import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 
 internal fun Project.versionCatalog(catalogName: String = "libs"): VersionCatalog {
-  val catalog = extensions.getByType(VersionCatalogsExtension::class.java)
+    val catalog = extensions.getByType(VersionCatalogsExtension::class.java)
 
-  return catalog.named(catalogName)
+    return catalog.named(catalogName)
 }
