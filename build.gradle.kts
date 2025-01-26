@@ -65,7 +65,7 @@ gradlePlugin {
     plugins {
         register("convention.kotlin") {
             id = "dev.whosnickdoglio.convention.kotlin"
-            implementationClass = "dev.whosnickdoglio.convention.KotlinPlugin"
+            implementationClass = "dev.whosnickdoglio.convention.KotlinProjectPlugin"
         }
     }
 }

@@ -34,9 +34,10 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-public class KotlinPlugin : Plugin<Project> {
+internal class KotlinProjectPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         val libs = target.versionCatalog()
+        // dokka, licensee, dependency/compose guard all optional
         with(target) {
             val extension = extensions.create("convention", ConventionExtension::class.java)
 
