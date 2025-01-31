@@ -40,6 +40,7 @@ plugins {
     alias(libs.plugins.bestPractices)
     alias(libs.plugins.publish)
     `java-gradle-plugin`
+    `java-test-fixtures`
 }
 
 group = "dev.whosnickdoglio"
@@ -66,6 +67,11 @@ gradlePlugin {
         register("convention.kotlin") {
             id = "dev.whosnickdoglio.convention.kotlin"
             implementationClass = "dev.whosnickdoglio.convention.KotlinProjectPlugin"
+        }
+
+        register("convention.gradle") {
+            id = "dev.whosnickdoglio.convention.gradle"
+            implementationClass = "dev.whosnickdoglio.convention.GradlePluginProjectPlugin"
         }
     }
 }

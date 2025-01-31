@@ -22,14 +22,14 @@
  * SOFTWARE.
  */
 
-package dev.whosnickdoglio.convention
+package dev.whosnickdoglio.convention.extension
 
 import javax.inject.Inject
-import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
+import org.gradle.api.Project
 
-public abstract class ConventionExtension @Inject constructor(objectFactory: ObjectFactory) {
+public abstract class ConventionExtension @Inject constructor(private val project: Project) {
 
-    public val kover: Property<Boolean> =
-        objectFactory.property(Boolean::class.java).convention(true)
+    public fun enableCodeCoverageWithKover() {
+        project.pluginManager.apply("org.jetbrains.kotlinx.kover")
+    }
 }

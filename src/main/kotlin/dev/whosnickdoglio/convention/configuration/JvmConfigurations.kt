@@ -25,16 +25,14 @@
 package dev.whosnickdoglio.convention.configuration
 
 import org.gradle.api.Project
-import org.gradle.api.tasks.TaskContainer
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.jvm.toolchain.JvmVendorSpec
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-internal fun Project.configureJvm(toolchainVersion: Int) {
+internal fun Project.configureJvm(toolchainVersion: Int, jvmTargetVersion: Int) {
     extensions.getByType(KotlinJvmProjectExtension::class.java).apply {
         explicitApi()
         jvmToolchain { toolchain ->
@@ -42,28 +40,14 @@ internal fun Project.configureJvm(toolchainVersion: Int) {
             toolchain.vendor.set(JvmVendorSpec.AZUL)
         }
     }
-    tasks.configureKotlin()
-    tasks.configureJava()
-}
-
-internal fun TaskContainer.configureKotlin() {
-    withType(KotlinCompile::class.java).configureEach { kotlinCompile ->
+    tasks.withType(KotlinCompile::class.java).configureEach { kotlinCompile ->
         kotlinCompile.compilerOptions {
-            freeCompilerArgs.add("-Xjdk-release=17")
+            freeCompilerArgs.add("-Xjdk-release=$jvmTargetVersion")
             allWarningsAsErrors.set(true)
-            jvmTarget.set(JvmTarget.JVM_17)
-            // Lint forces Kotlin (regardless of what version the project uses), so this
-            // forces a lower language level for now. Similar to `targetCompatibility` for Java.
-            apiVersion.set(KotlinVersion.KOTLIN_1_9)
-            languageVersion.set(KotlinVersion.KOTLIN_1_9)
+            jvmTarget.set(JvmTarget.fromTarget(jvmTargetVersion.toString()))
         }
     }
-}
-
-internal fun TaskContainer.configureJava() {
-    withType(JavaCompile::class.java).configureEach { javaCompile ->
-        javaCompile.options.release.set(JAVA_RELEASE_OPTIONS)
+    tasks.withType(JavaCompile::class.java).configureEach { javaCompile ->
+        javaCompile.options.release.set(jvmTargetVersion)
     }
 }
-
-private const val JAVA_RELEASE_OPTIONS = 17

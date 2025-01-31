@@ -24,38 +24,34 @@
 
 package dev.whosnickdoglio.convention
 
+import dev.whosnickdoglio.convention.configuration.applyLintingPlugins
 import dev.whosnickdoglio.convention.configuration.configureJvm
 import dev.whosnickdoglio.convention.configuration.configureLint
-import dev.whosnickdoglio.convention.configuration.configureSpotless
 import dev.whosnickdoglio.convention.configuration.configureTests
+import dev.whosnickdoglio.convention.configuration.getVersionOrError
 import dev.whosnickdoglio.convention.configuration.versionCatalog
-import io.gitlab.arturbosch.detekt.Detekt
+import dev.whosnickdoglio.convention.extension.ConventionExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
+/**  */
 internal class KotlinProjectPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         val libs = target.versionCatalog()
         // dokka, licensee, dependency/compose guard all optional
         with(target) {
-            val extension = extensions.create("convention", ConventionExtension::class.java)
-
             pluginManager.apply("org.jetbrains.kotlin.jvm")
-            if (extension.kover.get()) {
-                pluginManager.apply("org.jetbrains.kotlinx.kover")
-            }
-            pluginManager.apply("io.gitlab.arturbosch.detekt")
-            pluginManager.apply("com.autonomousapps.dependency-analysis")
-            pluginManager.apply("com.squareup.sort-dependencies")
+            extensions.create("convention", ConventionExtension::class.java)
 
-            tasks.withType(Detekt::class.java).configureEach {
-                it.jvmTarget = JvmTarget.JVM_22.target
-            }
+            val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 
-            configureJvm(libs.findVersion("jdk").get().requiredVersion.toInt())
+            applyLintingPlugins(jvmTargetVersion)
+
+            configureJvm(
+                toolchainVersion = libs.getVersionOrError("jdk").toInt(),
+                jvmTargetVersion = jvmTargetVersion.toInt(),
+            )
             configureLint()
-            configureSpotless(libs.findVersion("ktfmt").get().requiredVersion)
             configureTests()
         }
     }
