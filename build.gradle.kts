@@ -40,7 +40,6 @@ plugins {
     alias(libs.plugins.bestPractices)
     alias(libs.plugins.publish)
     `java-gradle-plugin`
-    `java-test-fixtures`
 }
 
 group = "dev.whosnickdoglio"
@@ -53,6 +52,10 @@ doctor { warnWhenNotUsingParallelGC = false }
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
 tasks.updateDaemonJvm.configure { jvmVersion = JavaLanguageVersion.of(libs.versions.jdk.get()) }
+
+gradleTestKitSupport {
+    disablePublication()
+}
 
 kotlin {
     explicitApi()

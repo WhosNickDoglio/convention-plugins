@@ -1,6 +1,7 @@
 # Gradle Convention Plugins
 
 [![CI](https://github.com/WhosNickDoglio/convention-plugins/actions/workflows/ci.yml/badge.svg)](https://github.com/WhosNickDoglio/convention-plugins/actions/workflows/ci.yml)
+![Maven Central Version](https://img.shields.io/maven-central/v/dev.whosnickdoglio/convention-plugins)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 [![codecov](https://codecov.io/github/WhosNickDoglio/convention-plugins/graph/badge.svg?token=73spSKaSVx)](https://codecov.io/github/WhosNickDoglio/convention-plugins)
 [![Maintainability](https://api.codeclimate.com/v1/badges/dae2d3864c78fbe7ff22/maintainability)](https://codeclimate.com/github/WhosNickDoglio/convention-plugins/maintainability)
