@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-rootProject.name = "convention-plugins"
-
 pluginManagement {
     repositories {
         exclusiveContent {
@@ -53,6 +51,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+rootProject.name = "convention-plugins"
 
 plugins {
     id("com.gradle.develocity") version "3.19.1"

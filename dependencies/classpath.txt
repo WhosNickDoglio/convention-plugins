@@ -114,6 +114,8 @@ commons-codec:commons-codec:1.17.0
 commons-io:commons-io:2.13.0
 commons-logging:commons-logging:1.2
 dev.equo.ide:solstice:1.8.1
+dev.whosnickdoglio.convention.gradle:dev.whosnickdoglio.convention.gradle.gradle.plugin:0.1
+dev.whosnickdoglio:convention-plugins:0.1
 dev.zacsweers.moshix:moshi-sealed-metadata-reflect:0.23.0
 dev.zacsweers.moshix:moshi-sealed-reflect:0.25.1
 dev.zacsweers.moshix:moshi-sealed-runtime:0.25.1

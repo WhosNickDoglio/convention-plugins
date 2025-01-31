@@ -22,11 +22,8 @@
  * SOFTWARE.
  */
 
-import io.gitlab.arturbosch.detekt.Detekt
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
+    alias(libs.plugins.convention.gradle)
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.detekt)
     alias(libs.plugins.lint)
@@ -39,7 +36,6 @@ plugins {
     alias(libs.plugins.testKit)
     alias(libs.plugins.bestPractices)
     alias(libs.plugins.publish)
-    `java-gradle-plugin`
 }
 
 group = "dev.whosnickdoglio"
@@ -53,17 +49,7 @@ doctor { warnWhenNotUsingParallelGC = false }
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
 tasks.updateDaemonJvm.configure { jvmVersion = JavaLanguageVersion.of(libs.versions.jdk.get()) }
 
-gradleTestKitSupport {
-    disablePublication()
-}
-
-kotlin {
-    explicitApi()
-    jvmToolchain {
-        languageVersion = JavaLanguageVersion.of(libs.versions.jdk.get().toInt())
-        vendor = JvmVendorSpec.AZUL
-    }
-}
+gradleTestKitSupport { disablePublication() }
 
 gradlePlugin {
     plugins {
@@ -78,52 +64,6 @@ gradlePlugin {
         }
     }
 }
-
-lint {
-    htmlReport = false
-    xmlReport = false
-    textReport = true
-    absolutePaths = false
-    checkTestSources = true
-    warningsAsErrors = true
-    baseline = file("lint-baseline.xml")
-    disable.add("GradleDependency")
-}
-
-spotless {
-    format("misc") {
-        target("*.md", ".gitignore")
-        trimTrailingWhitespace()
-        endWithNewline()
-    }
-
-    kotlin {
-        ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
-        trimTrailingWhitespace()
-        endWithNewline()
-    }
-    kotlinGradle {
-        ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
-        trimTrailingWhitespace()
-        endWithNewline()
-    }
-}
-
-tasks.named<ValidatePlugins>("validatePlugins").configure { enableStricterValidation = true }
-
-tasks.withType<KotlinCompile>().configureEach {
-    compilerOptions {
-        allWarningsAsErrors = true
-        jvmTarget = JvmTarget.JVM_17
-    }
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    sourceCompatibility = JavaVersion.VERSION_17.toString()
-    targetCompatibility = JavaVersion.VERSION_17.toString()
-}
-
-tasks.withType<Detekt>().configureEach { jvmTarget = "22" }
 
 dependencies {
     functionalTestImplementation(libs.testKit.supprt)
