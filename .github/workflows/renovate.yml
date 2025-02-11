@@ -2,10 +2,9 @@
 name: Renovate
 
 on:
-    pull_request:
-      types: [opened, reopened]
-      branches:
-        - renovate/**
+    pull_request: { }
+    branches:
+      - 'renovate/**'
 
 jobs:
   Validate-Gradle:
@@ -40,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/setup
-      - uses: stefanzweifel/git-auto-commit-action@e348103e9026cc0eee72ae06630dbe30c8bf7a79 # v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_options: '--amend'
           push_options: '--force'
