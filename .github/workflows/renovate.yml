@@ -2,9 +2,7 @@
 name: Renovate
 
 on:
-  pull_request:
-    types:
-      - opened
+    pull_request: { }
     branches:
       - 'renovate/**'
 
