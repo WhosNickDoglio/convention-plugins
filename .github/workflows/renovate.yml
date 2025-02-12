@@ -10,7 +10,7 @@ on:
 jobs:
   Validate-Gradle:
     runs-on: ubuntu-latest
-    if: "startsWith(github.base_ref, 'renovate/')"
+    if: "startsWith(github.head_ref, 'renovate/')"
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/setup
@@ -20,7 +20,7 @@ jobs:
         uses: gradle/actions/wrapper-validation@94baf225fe0a508e581a564467443d0e2379123b # v4
 
   DependencyGuard:
-    if: "startsWith(github.base_ref, 'renovate/')"
+    if: "startsWith(github.head_ref, 'renovate/')"
     runs-on: ubuntu-latest
     needs: [ Validate-Gradle ]
     steps:
@@ -32,7 +32,7 @@ jobs:
         run: ./gradlew dependencyGuardBaseline
 
   Commit-changes:
-    if: "startsWith(github.base_ref, 'renovate/')"
+    if: "startsWith(github.head_ref, 'renovate/')"
     runs-on: ubuntu-latest
     permissions:
       contents: write
