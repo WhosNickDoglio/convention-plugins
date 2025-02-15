@@ -7,7 +7,43 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/dae2d3864c78fbe7ff22/maintainability)](https://codeclimate.com/github/WhosNickDoglio/convention-plugins/maintainability)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+A handful of JVM and Android specific Gradle convention plugins to simplify some project setup
 
+## Plugins
+
+### `dev.whosnickdoglio.convention.kotlin`
+
+Used where you would normally use `org.jetbrains.kotlin.jvm` (But if you're creating a Gradle plugin
+you'll want `dev.whosnickdoglio.convention.gradle` instead)
+
+Plugins that are applied and expected to be on the classpath: 
+- `org.jetbrains.kotlin.jvm`
+- `io.gitlab.arturbosch.detekt`
+- `com.autonomousapps.dependency-analysis`
+- `com.squareup.sort-dependencies`
+- `com.android.lint`
+- `com.diffplug.spotless` (Configured to use `ktfmt` KotlinLang code style)
+
+
+Also configures JDK toolchains and the java target version
+
+### `dev.whosnickdoglio.convention.gradle`
+
+Used where you'd normally use `java-gradle-plugin`
+
+Plugins that are applied and expected to be on the classpath:
+- `java-gradle-plugin`
+- `org.jetbrains.kotlin.jvm`
+- `io.gitlab.arturbosch.detekt`
+- `com.autonomousapps.dependency-analysis`
+- `com.squareup.sort-dependencies`
+- `com.android.lint`
+- `com.diffplug.spotless` (Configured to use `ktfmt` KotlinLang code style)
+- `com.autonomousapps.plugin-best-practices-plugin`
+- `com.autonomousapps.testkit` (For functional tests fo your plugin)
+
+
+Also configures JDK toolchains & the java target version and sets `validatePlugins` to strict
 
 # License
 
