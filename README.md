@@ -16,7 +16,7 @@ A handful of JVM and Android specific Gradle convention plugins to simplify some
 Used where you would normally use `org.jetbrains.kotlin.jvm` (But if you're creating a Gradle plugin
 you'll want `dev.whosnickdoglio.convention.gradle` instead)
 
-Plugins that are applied and expected to be on the classpath: 
+Plugins that are applied and expected to be on the classpath:
 - `org.jetbrains.kotlin.jvm`
 - `io.gitlab.arturbosch.detekt`
 - `com.autonomousapps.dependency-analysis`
