@@ -34,11 +34,20 @@ import dev.whosnickdoglio.convention.extension.ConventionExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-/**  */
-internal class KotlinProjectPlugin : Plugin<Project> {
+/**
+ * Convention plugin for JVM Kotlin projects. Sets up some common
+ * linting tools like Detekt, Android Lint, Spotless with Ktfmt, and
+ * sort-dependencies.
+ *
+ * ```
+ * convention {
+ *
+ * }
+ * ```
+ */
+internal class KotlinJvmProjectPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         val libs = target.versionCatalog()
-        // dokka, licensee, dependency/compose guard all optional
         with(target) {
             pluginManager.apply("org.jetbrains.kotlin.jvm")
             extensions.create("convention", ConventionExtension::class.java)
