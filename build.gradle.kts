@@ -30,7 +30,6 @@ plugins {
     alias(libs.plugins.doctor)
     alias(libs.plugins.spotless)
     alias(libs.plugins.dependencyAnalysis)
-    alias(libs.plugins.dependencyGuard)
     alias(libs.plugins.kover)
     alias(libs.plugins.sortDependencies)
     alias(libs.plugins.testKit)
@@ -41,8 +40,6 @@ plugins {
 group = "dev.whosnickdoglio"
 
 version = "0.1"
-
-dependencyGuard { configuration("classpath") }
 
 doctor { warnWhenNotUsingParallelGC = false }
 
