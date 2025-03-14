@@ -1,6 +1,6 @@
 [versions]
 agp = "8.9.0"
-dependencyAnalysis = "2.11.0"
+dependencyAnalysis = "2.12.0"
 kotlin = "2.1.10"
 ktfmt = "0.54"
 detekt = "1.23.8"
