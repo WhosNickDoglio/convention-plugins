@@ -37,10 +37,6 @@ plugins {
     alias(libs.plugins.publish)
 }
 
-group = "dev.whosnickdoglio"
-
-version = "0.1"
-
 doctor { warnWhenNotUsingParallelGC = false }
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
