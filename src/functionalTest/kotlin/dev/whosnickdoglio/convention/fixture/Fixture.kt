@@ -64,8 +64,8 @@ private val defaultPlugins: List<Plugin>
 private const val VERSION_CATALOG =
     """
                 [versions]
-                jdk = "11"
-                jdkTarget = "11"
+                jdk = "23"
+                jdkTarget = "17"
                 kotlin = "2.1.10"
                 detekt = "1.23.8"
                 dependencyAnalysis = "2.12.0"
