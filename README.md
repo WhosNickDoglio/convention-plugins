@@ -9,7 +9,7 @@
 
 A handful of JVM and Android specific Gradle convention plugins to simplify some project setup
 
-## Usage 
+## Usage
 
 ```kotlin
 plugins {
