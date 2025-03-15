@@ -37,12 +37,12 @@ plugins {
     alias(libs.plugins.publish)
 }
 
+version = providers.gradleProperty("VERSION_NAME").get()
+
 doctor { warnWhenNotUsingParallelGC = false }
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
 tasks.updateDaemonJvm.configure { jvmVersion = JavaLanguageVersion.of(libs.versions.jdk.get()) }
-
-gradleTestKitSupport { disablePublication() }
 
 gradlePlugin {
     plugins {
@@ -58,9 +58,16 @@ gradlePlugin {
     }
 }
 
+tasks.withType(AbstractPublishToMaven::class.java).configureEach {
+    dependsOn(tasks.withType<Sign>())
+}
+
 dependencies {
+    functionalTestImplementation(libs.junit)
     functionalTestImplementation(libs.testKit.supprt)
     functionalTestImplementation(libs.testKit.truth)
+    functionalTestImplementation(libs.testParameterInjector)
+    functionalTestImplementation(libs.truth)
 
     compileOnly(libs.android.gradle)
     compileOnly(libs.dependencyAnalysis.gradle)
