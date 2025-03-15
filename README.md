@@ -9,6 +9,20 @@
 
 A handful of JVM and Android specific Gradle convention plugins to simplify some project setup
 
+## Usage 
+
+```kotlin
+plugins {
+    id("dev.whosnickdoglio.convention.kotlin") version "LATEST_VERSION"
+    id("dev.whosnickdoglio.convention.gradle") version "LATEST_VERSION"
+}
+```
+
+Snapshots are also published to Maven Central Portal and can be consumed by adding the following repository to your build.gradle file
+```kotlin
+maven(url = "https://central.sonatype.com/repository/maven-snapshots/")
+```
+
 ## Plugins
 
 ### `dev.whosnickdoglio.convention.kotlin`
