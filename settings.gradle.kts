@@ -66,3 +66,5 @@ develocity {
         termsOfUseAgree = "yes"
     }
 }
+
+include("submodule-plugins")
