@@ -23,21 +23,19 @@
  */
 
 plugins {
-    alias(libs.plugins.convention.gradle)
-    alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.detekt)
-    alias(libs.plugins.lint)
     alias(libs.plugins.doctor)
-    alias(libs.plugins.spotless)
-    alias(libs.plugins.dependencyAnalysis)
-    alias(libs.plugins.kover)
-    alias(libs.plugins.sortDependencies)
-    alias(libs.plugins.testKit)
-    alias(libs.plugins.bestPractices)
-    alias(libs.plugins.publish)
+    alias(libs.plugins.convention.gradle) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.lint) apply false
+    alias(libs.plugins.spotless) apply false
+    alias(libs.plugins.dependencyAnalysis) apply false
+    alias(libs.plugins.kover) apply false
+    alias(libs.plugins.sortDependencies) apply false
+    alias(libs.plugins.testKit) apply false
+    alias(libs.plugins.bestPractices) apply false
+    alias(libs.plugins.publish) apply false
 }
-
-version = providers.gradleProperty("VERSION_NAME").get()
 
 doctor {
     @Suppress("DEPRECATION")
@@ -48,44 +46,4 @@ doctor {
 tasks.updateDaemonJvm.configure {
     languageVersion = JavaLanguageVersion.of(libs.versions.jdk.get())
     vendor = JvmVendorSpec.AZUL
-}
-
-gradlePlugin {
-    plugins {
-        register("convention.kotlin") {
-            id = "dev.whosnickdoglio.convention.kotlin"
-            implementationClass = "dev.whosnickdoglio.convention.KotlinJvmProjectPlugin"
-        }
-
-        register("convention.gradle") {
-            id = "dev.whosnickdoglio.convention.gradle"
-            implementationClass = "dev.whosnickdoglio.convention.GradlePluginProjectPlugin"
-        }
-    }
-}
-
-tasks.withType(AbstractPublishToMaven::class.java).configureEach {
-    dependsOn(tasks.withType<Sign>())
-}
-
-dependencies {
-    functionalTestImplementation(libs.junit)
-    functionalTestImplementation(libs.testKit.supprt)
-    functionalTestImplementation(libs.testKit.truth)
-    functionalTestImplementation(libs.testParameterInjector)
-    functionalTestImplementation(libs.truth)
-
-    compileOnly(libs.android.gradle)
-    compileOnly(libs.dependencyAnalysis.gradle)
-    compileOnly(libs.detekt.gradle)
-    compileOnly(libs.kotlin.gradle)
-    compileOnly(libs.kover.gradle)
-    compileOnly(libs.sortDependencies.gradle)
-    compileOnly(libs.spotless.gradle)
-
-    testImplementation(libs.junit)
-    testImplementation(libs.testParameterInjector)
-    testImplementation(libs.truth)
-
-    lintChecks(libs.androidx.gradle.lints)
 }
