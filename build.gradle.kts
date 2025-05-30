@@ -39,7 +39,10 @@ plugins {
 
 version = providers.gradleProperty("VERSION_NAME").get()
 
-doctor { warnWhenNotUsingParallelGC = false }
+doctor {
+    @Suppress("DEPRECATION")
+    warnWhenNotUsingParallelGC = false
+}
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
 tasks.updateDaemonJvm.configure { jvmVersion = JavaLanguageVersion.of(libs.versions.jdk.get()) }
