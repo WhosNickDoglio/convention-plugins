@@ -53,18 +53,18 @@ private val defaultPlugins: List<Plugin>
                 "dev.whosnickdoglio.convention.kotlin",
                 AbstractGradleProject.PLUGIN_UNDER_TEST_VERSION,
             ),
-            Plugin("org.jetbrains.kotlin.jvm", "2.1.10"),
+            Plugin("org.jetbrains.kotlin.jvm", "2.2.0"),
             Plugin("io.gitlab.arturbosch.detekt", "1.23.8"),
             Plugin("com.autonomousapps.dependency-analysis", "2.12.0"),
             Plugin("com.squareup.sort-dependencies", "0.14"),
-            Plugin("com.android.lint", "8.9.0"),
+            Plugin("com.android.lint", "8.11.0"),
             Plugin("com.diffplug.spotless", "7.0.2"),
         )
 
 private const val VERSION_CATALOG =
     """
                 [versions]
-                jdk = "23"
+                jdk = "24"
                 jdkTarget = "17"
                 kotlin = "2.1.10"
                 detekt = "1.23.8"
