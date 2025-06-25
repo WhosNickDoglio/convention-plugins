@@ -2,7 +2,7 @@
 agp = "8.11.0"
 dependencyAnalysis = "2.19.0"
 kotlin = "2.2.0"
-ktfmt = "0.55"
+ktfmt = "0.56"
 detekt = "1.23.8"
 kover = "0.9.1"
 spotless = "7.0.4"
