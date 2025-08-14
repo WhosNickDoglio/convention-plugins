@@ -1,7 +1,7 @@
 [versions]
 agp = "8.12.0"
 dependencyAnalysis = "2.19.0"
-kotlin = "2.2.0"
+kotlin = "2.2.10"
 ktfmt = "0.56"
 detekt = "1.23.8"
 kover = "0.9.1"
