@@ -20,7 +20,7 @@ dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version.re
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
-testKit = { id = "com.autonomousapps.testkit", version = "0.15" }
+testKit = { id = "com.autonomousapps.testkit", version = "0.16" }
 publish = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
 bestPractices = { id = "com.autonomousapps.plugin-best-practices-plugin", version = "0.10" }
 
