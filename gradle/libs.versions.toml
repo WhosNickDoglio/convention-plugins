@@ -38,7 +38,7 @@ ktfmt = { module = "com.facebook:ktfmt", version.ref = "ktfmt" }
 
 androidx-gradle-lints = { module = "androidx.lint:lint-gradle", version = "1.0.0-alpha05" }
 
-testKit-supprt = { module = "com.autonomousapps:gradle-testkit-support", version = "0.21" }
+testKit-supprt = { module = "com.autonomousapps:gradle-testkit-support", version = "0.22" }
 testKit-truth = { module = "com.autonomousapps:gradle-testkit-truth", version = "1.6.1" }
 
 junit = { module = "junit:junit", version = "4.13.2" }
