@@ -1,6 +1,5 @@
 // Copyright (C) 2025 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-
 package dev.whosnickdoglio.convention.fixture
 
 import com.autonomousapps.kit.AbstractGradleProject
