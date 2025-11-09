@@ -14,12 +14,12 @@ gradlePlugin {
     plugins {
         register("convention.kotlin") {
             id = "dev.whosnickdoglio.convention.kotlin"
-            implementationClass = "dev.whosnickdoglio.convention.KotlinJvmProjectPlugin"
+            implementationClass = "dev.whosnickdoglio.convention.internal.KotlinJvmProjectPlugin"
         }
 
         register("convention.gradle") {
             id = "dev.whosnickdoglio.convention.gradle"
-            implementationClass = "dev.whosnickdoglio.convention.GradlePluginProjectPlugin"
+            implementationClass = "dev.whosnickdoglio.convention.internal.GradlePluginProjectPlugin"
         }
     }
 }
