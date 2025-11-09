@@ -29,7 +29,8 @@ internal fun Project.applyLintingPlugins(jvmTarget: String) {
     pluginManager.apply("io.gitlab.arturbosch.detekt")
     tasks.withType(Detekt::class.java).configureEach {
         it.jvmTarget = jvmTarget
-//        it.exclude { fileTreeElement -> fileTreeElement.file.path.contains("build/generated/ksp") }
+        //        it.exclude { fileTreeElement ->
+        // fileTreeElement.file.path.contains("build/generated/ksp") }
     }
     pluginManager.apply("com.autonomousapps.dependency-analysis")
     pluginManager.apply("com.squareup.sort-dependencies")

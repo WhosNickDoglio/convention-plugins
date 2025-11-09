@@ -1,10 +1,9 @@
 // Copyright (C) 2025 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-
 package dev.whosnickdoglio.convention
 
-import org.gradle.api.Project
 import javax.inject.Inject
+import org.gradle.api.Project
 
 /**
  * A Gradle extension that provides configuration methods for common build conventions.
