@@ -36,7 +36,7 @@ private val defaultPlugins: List<Plugin>
             Plugin("com.autonomousapps.dependency-analysis", "2.19.0"),
             Plugin("com.squareup.sort-dependencies", "0.14"),
             Plugin("com.android.lint", "8.12.0"),
-            Plugin("com.diffplug.spotless", "7.0.2"),
+            Plugin("com.ncorti.ktfmt.gradle", "0.25.0"),
         )
 
 private const val VERSION_CATALOG =
@@ -47,8 +47,7 @@ private const val VERSION_CATALOG =
                 kotlin = "2.2.10"
                 detekt = "1.23.8"
                 dependencyAnalysis = "2.19.0"
-                spotless = "7.0.2"
-                ktfmt = "0.54"
+                ktfmt-gradle = "0.25.0"
 
                 [plugins]
                 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
@@ -56,7 +55,7 @@ private const val VERSION_CATALOG =
                 dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependencyAnalysis" }
                 sort-dependencies = { id = "com.squareup.sort-dependencies", version = "0.14" }
                 android-lint = { id = "com.android.lint", version = "8.9.0" }
-                spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+                ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt-gradle"}
                 """
 
 private class MyFixture : GradleTestFixtureProject() {

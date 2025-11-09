@@ -30,6 +30,5 @@ internal fun Project.applyLintingPlugins(jvmTarget: String) {
     tasks.withType(Detekt::class.java).configureEach { it.jvmTarget = jvmTarget }
     pluginManager.apply("com.autonomousapps.dependency-analysis")
     pluginManager.apply("com.squareup.sort-dependencies")
-    val libs = versionCatalog()
-    configureSpotless(libs.findVersion("ktfmt").get().requiredVersion)
+    configureKtfmt()
 }

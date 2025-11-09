@@ -37,7 +37,7 @@ Plugins that are applied and expected to be on the classpath:
 - `com.autonomousapps.dependency-analysis`
 - `com.squareup.sort-dependencies`
 - `com.android.lint`
-- `com.diffplug.spotless` (Configured to use `ktfmt` KotlinLang code style)
+- `com.ncorti.ktfmt.gradle`
 
 
 Also configures JDK toolchains and the java target version
@@ -53,7 +53,7 @@ Plugins that are applied and expected to be on the classpath:
 - `com.autonomousapps.dependency-analysis`
 - `com.squareup.sort-dependencies`
 - `com.android.lint`
-- `com.diffplug.spotless` (Configured to use `ktfmt` KotlinLang code style)
+- `com.ncorti.ktfmt.gradle`
 - `com.autonomousapps.plugin-best-practices-plugin`
 - `com.autonomousapps.testkit` (For functional tests fo your plugin)
 

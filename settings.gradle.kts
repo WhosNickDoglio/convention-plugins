@@ -28,6 +28,8 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        google()
+        gradlePluginPortal()
     }
 }
 
