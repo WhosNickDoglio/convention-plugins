@@ -1,6 +1,6 @@
 // Copyright (C) 2025 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-package dev.whosnickdoglio.convention.configuration
+package dev.whosnickdoglio.convention.internal.configuration
 
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test

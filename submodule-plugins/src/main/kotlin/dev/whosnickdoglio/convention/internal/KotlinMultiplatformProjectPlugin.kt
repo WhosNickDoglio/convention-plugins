@@ -1,13 +1,13 @@
 // Copyright (C) 2025 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-package dev.whosnickdoglio.convention
+package dev.whosnickdoglio.convention.internal
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-internal class RootProjectPlugin : Plugin<Project> {
+internal class KotlinMultiplatformProjectPlugin : Plugin<Project> {
     override fun apply(target: Project) {
-        // apply gradle doctor
-        // updateDaemonJvm
+        // base stuff
+        // setup targets
     }
 }

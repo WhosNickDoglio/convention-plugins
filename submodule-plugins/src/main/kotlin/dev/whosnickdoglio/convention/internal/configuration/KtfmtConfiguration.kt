@@ -1,6 +1,6 @@
 // Copyright (C) 2025 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-package dev.whosnickdoglio.convention.configuration
+package dev.whosnickdoglio.convention.internal.configuration
 
 import com.ncorti.ktfmt.gradle.KtfmtExtension
 import org.gradle.api.Project

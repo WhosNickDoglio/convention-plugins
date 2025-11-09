@@ -1,6 +1,6 @@
 // Copyright (C) 2025 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-package dev.whosnickdoglio.convention.configuration
+package dev.whosnickdoglio.convention.internal.configuration
 
 import io.gitlab.arturbosch.detekt.Detekt
 import kotlin.jvm.optionals.getOrNull
@@ -27,7 +27,10 @@ internal fun VersionCatalog.getVersionOrError(key: String): String {
 
 internal fun Project.applyLintingPlugins(jvmTarget: String) {
     pluginManager.apply("io.gitlab.arturbosch.detekt")
-    tasks.withType(Detekt::class.java).configureEach { it.jvmTarget = jvmTarget }
+    tasks.withType(Detekt::class.java).configureEach {
+        it.jvmTarget = jvmTarget
+//        it.exclude { fileTreeElement -> fileTreeElement.file.path.contains("build/generated/ksp") }
+    }
     pluginManager.apply("com.autonomousapps.dependency-analysis")
     pluginManager.apply("com.squareup.sort-dependencies")
     configureKtfmt()
