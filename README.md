@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/WhosNickDoglio/convention-plugins/actions/workflows/ci.yml/badge.svg)](https://github.com/WhosNickDoglio/convention-plugins/actions/workflows/ci.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/dev.whosnickdoglio.conventions/convention-plugins)](https://central.sonatype.com/artifact/dev.whosnickdoglio.conventions/convention-plugins/overview)
-[![Snapshot](https://img.shields.io/maven-metadata/v.svg?label=snapshot&metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fdev%2Fwhosnickdoglio%2Fconvention-plugins%2Fmaven-metadata.xml)](https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/dev/whosnickdoglio/convention-plugins)
+[![Snapshot](https://img.shields.io/maven-metadata/v.svg?label=snapshot&metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fdev%2Fwhosnickdoglio%2Fconventions%2Fconvention-plugins%2Fmaven-metadata.xml)](https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/dev/whosnickdoglio/conventions/convention-plugins)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 [![codecov](https://codecov.io/github/WhosNickDoglio/convention-plugins/graph/badge.svg?token=73spSKaSVx)](https://codecov.io/github/WhosNickDoglio/convention-plugins)
 [![Maintainability](https://api.codeclimate.com/v1/badges/dae2d3864c78fbe7ff22/maintainability)](https://codeclimate.com/github/WhosNickDoglio/convention-plugins/maintainability)
