@@ -35,8 +35,9 @@ internal class GradlePluginProjectPlugin : Plugin<Project> {
             configureTests()
 
             tasks.withType(ValidatePlugins::class.java).named("validatePlugins").configure {
-                validatePlugins ->
-                validatePlugins.enableStricterValidation.set(true)
+                validate ->
+                validate.enableStricterValidation.set(true)
+                validate.failOnWarning.set(true)
             }
         }
 }
