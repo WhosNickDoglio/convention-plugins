@@ -12,9 +12,27 @@ version = providers.gradleProperty("VERSION_NAME").get()
 
 gradlePlugin {
     plugins {
+        register("convention.android.app") {
+            id = "dev.whosnickdoglio.convention.android.app"
+            implementationClass =
+                "dev.whosnickdoglio.convention.internal.AndroidApplicationProjectPlugin"
+        }
+
+        register("convention.android.library") {
+            id = "dev.whosnickdoglio.convention.android.library"
+            implementationClass =
+                "dev.whosnickdoglio.convention.internal.AndroidLibraryProjectPlugin"
+        }
+
         register("convention.kotlin") {
             id = "dev.whosnickdoglio.convention.kotlin"
             implementationClass = "dev.whosnickdoglio.convention.internal.KotlinJvmProjectPlugin"
+        }
+
+        register("convention.kmp") {
+            id = "dev.whosnickdoglio.convention.kmp"
+            implementationClass =
+                "dev.whosnickdoglio.convention.internal.KotlinMultiplatformProjectPlugin"
         }
 
         register("convention.gradle") {
