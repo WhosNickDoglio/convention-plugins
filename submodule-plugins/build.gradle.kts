@@ -42,7 +42,6 @@ dependencies {
     compileOnly(libs.kover.gradle)
     compileOnly(libs.ktfmt.gradle)
     compileOnly(libs.sortDependencies.gradle)
-    compileOnly(libs.spotless.gradle)
 
     testImplementation(libs.junit)
     testImplementation(libs.testParameterInjector)

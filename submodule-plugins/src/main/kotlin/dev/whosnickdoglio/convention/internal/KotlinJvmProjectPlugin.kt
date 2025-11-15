@@ -14,7 +14,7 @@ import org.gradle.api.Project
 
 /**
  * Convention plugin for JVM Kotlin projects. Sets up some common linting tools like Detekt, Android
- * Lint, Spotless with Ktfmt, and sort-dependencies.
+ * Lint, Ktfmt, and sort-dependencies.
  *
  * ```
  * convention {
