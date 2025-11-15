@@ -2,17 +2,22 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention.internal.configuration
 
+import org.gradle.api.Action
 import org.gradle.api.Project
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.jvm.toolchain.JvmVendorSpec
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.abi.AbiValidationExtension
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+@OptIn(ExperimentalAbiValidation::class)
 internal fun Project.configureJvm(toolchainVersion: Int, jvmTargetVersion: Int) {
     extensions.getByType(KotlinProjectExtension::class.java).apply {
         explicitApi()
+        abiValidation { it.enabled.set(true) }
         jvmToolchain { toolchain ->
             toolchain.languageVersion.set(JavaLanguageVersion.of(toolchainVersion))
             toolchain.vendor.set(JvmVendorSpec.AZUL)
@@ -28,4 +33,10 @@ internal fun Project.configureJvm(toolchainVersion: Int, jvmTargetVersion: Int) 
     tasks.withType(JavaCompile::class.java).configureEach { javaCompile ->
         javaCompile.options.release.set(jvmTargetVersion)
     }
+
+    // youtrack.jetbrains.com/issue/KT-78525
+    tasks.named("check").configure { it.dependsOn(tasks.named("checkLegacyAbi")) }
 }
+
+private fun KotlinProjectExtension.abiValidation(configure: Action<AbiValidationExtension>) =
+    (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("abiValidation", configure)
