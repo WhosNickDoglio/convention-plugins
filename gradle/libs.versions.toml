@@ -12,7 +12,7 @@ jdkTarget = "17"
 sort = "0.15"
 
 [plugins]
-convention-gradle = { id = "dev.whosnickdoglio.convention.gradle", version = "0.1" }
+convention-gradle = { id = "dev.whosnickdoglio.convention.gradle", version = "0.2.0" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.1" }

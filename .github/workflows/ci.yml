@@ -45,7 +45,7 @@ jobs:
     needs: [ Build ]
     strategy:
       matrix:
-        command: [ detektMain, detektTest, spotlessCheck, lint, checkSortDependencies, validatePlugins, checkBestPractices ]
+        command: [ detektMain, detektTest, ktfmtCheck, lint, checkSortDependencies, validatePlugins, checkBestPractices ]
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ./.github/actions/setup
