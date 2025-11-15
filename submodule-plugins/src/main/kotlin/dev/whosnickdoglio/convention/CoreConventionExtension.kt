@@ -13,7 +13,7 @@ import org.gradle.api.model.ObjectFactory
  *
  * This extension can be accessed via the `convention` DSL.
  */
-public abstract class ConventionExtension
+public abstract class CoreConventionExtension
 @Inject
 constructor(private val objects: ObjectFactory, private val project: Project) {
     /**

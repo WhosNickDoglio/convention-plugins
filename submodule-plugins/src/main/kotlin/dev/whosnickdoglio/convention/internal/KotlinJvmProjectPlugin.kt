@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention.internal
 
-import dev.whosnickdoglio.convention.ConventionExtension
+import dev.whosnickdoglio.convention.CoreConventionExtension
 import dev.whosnickdoglio.convention.internal.configuration.applyLintingPlugins
 import dev.whosnickdoglio.convention.internal.configuration.configureJvm
 import dev.whosnickdoglio.convention.internal.configuration.configureLint
@@ -27,7 +27,7 @@ internal class KotlinJvmProjectPlugin : Plugin<Project> {
         val libs = target.versionCatalog()
         with(target) {
             pluginManager.apply("org.jetbrains.kotlin.jvm")
-            extensions.create("convention", ConventionExtension::class.java)
+            extensions.create("convention", CoreConventionExtension::class.java)
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 

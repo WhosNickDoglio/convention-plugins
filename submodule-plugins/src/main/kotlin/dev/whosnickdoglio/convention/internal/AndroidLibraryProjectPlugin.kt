@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention.internal
 
-import dev.whosnickdoglio.convention.ConventionExtension
+import dev.whosnickdoglio.convention.CoreConventionExtension
 import dev.whosnickdoglio.convention.internal.configuration.applyLintingPlugins
 import dev.whosnickdoglio.convention.internal.configuration.configureJvm
 import dev.whosnickdoglio.convention.internal.configuration.configureLint
@@ -23,7 +23,7 @@ internal class AndroidLibraryProjectPlugin : Plugin<Project> {
             pluginManager.apply("com.android.library")
             pluginManager.apply(CACHE_FIX_PLUGIN_ID)
             pluginManager.apply(KOTLIN_ANDROID_PLUGIN_ID)
-            extensions.create("convention", ConventionExtension::class.java)
+            extensions.create("convention", CoreConventionExtension::class.java)
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 
