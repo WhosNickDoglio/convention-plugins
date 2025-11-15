@@ -1,7 +1,7 @@
 // Copyright (C) 2025 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.convention
+package dev.whosnickdoglio.convention.handlers
 
 import javax.inject.Inject
 import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension

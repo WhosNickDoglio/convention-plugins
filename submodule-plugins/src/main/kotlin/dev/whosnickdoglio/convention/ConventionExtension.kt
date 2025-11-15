@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention
 
+import dev.whosnickdoglio.convention.handlers.KoverHandler
 import javax.inject.Inject
 import org.gradle.api.Action
 import org.gradle.api.Project
