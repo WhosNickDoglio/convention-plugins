@@ -56,6 +56,7 @@ private fun ApplicationExtension.configure(
     defaultConfig {
         applicationId = ""
         targetSdk = libs.findVersion("target-sdk").get().requiredVersion.toInt()
+        // TODO expose these
         versionCode = 1
         versionName = "1.0"
     }

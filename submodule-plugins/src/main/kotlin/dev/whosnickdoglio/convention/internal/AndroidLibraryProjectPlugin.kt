@@ -14,10 +14,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 internal class AndroidLibraryProjectPlugin : Plugin<Project> {
-    // apply "base" plugin stuff
-    // general Android configuration
     // apply compose guard
-    // disable debug variant by default
     override fun apply(target: Project) {
         val libs = target.versionCatalog()
         with(target) {

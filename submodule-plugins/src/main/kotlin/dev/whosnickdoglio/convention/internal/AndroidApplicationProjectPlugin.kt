@@ -14,10 +14,8 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 internal class AndroidApplicationProjectPlugin : Plugin<Project> {
-    // apply "base" stuff
     // dependency guard
     // compose guard
-    // coreLibraryDesugaring
     override fun apply(target: Project) {
         val libs = target.versionCatalog()
         with(target) {
@@ -32,6 +30,12 @@ internal class AndroidApplicationProjectPlugin : Plugin<Project> {
             applyLintingPlugins(jvmTargetVersion)
 
             configureAndroid()
+
+            val desugar = libs.findLibrary("desguar")
+
+            if (desugar.isPresent) {
+                dependencies.add("coreLibraryDesugaring", desugar.get())
+            }
 
             configureJvm(
                 toolchainVersion = libs.getVersionOrError("jdk").toInt(),
