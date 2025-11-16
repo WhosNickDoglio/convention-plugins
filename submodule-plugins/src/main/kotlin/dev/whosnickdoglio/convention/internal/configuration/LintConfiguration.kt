@@ -8,9 +8,7 @@ import org.gradle.api.Project
 
 internal fun Project.configureLint() {
     pluginManager.apply("com.android.lint")
-    extensions.getByType(Lint::class.java).apply {
-        configure(baselineLineFile = file("lint-baseline.xml"))
-    }
+    extensions.getByType(Lint::class.java).configure(baselineLineFile = file("lint-baseline.xml"))
 }
 
 internal fun Lint.configure(baselineLineFile: File, disabledRules: Set<String> = emptySet()) {
