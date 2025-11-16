@@ -1,6 +1,7 @@
 [versions]
 agp = "8.13.1"
 dependencyAnalysis = "3.4.1"
+guard = "0.5.0"
 kotlin = "2.2.21"
 ktfmt = "0.59"
 ktfmt-gradle = "0.25.0"
@@ -16,6 +17,7 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.1" }
 dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependencyAnalysis" }
+dependencyGuard = { id = "com.dropbox.dependency-guard", version.ref = "guard" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
@@ -33,6 +35,7 @@ android-gradle = { module = "com.android.tools.build:gradle-api", version.ref = 
 kover-gradle = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
 sortDependencies-gradle = { module = "com.squareup.sort-dependencies:com.squareup.sort-dependencies.gradle.plugin", version.ref = "sort" }
 dependencyAnalysis-gradle = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version.ref = "dependencyAnalysis" }
+dependencyGuard-gradle = { module = "com.dropbox.dependency-guard:dependency-guard", version.ref = "guard" }
 
 # Only present to trigger automatic renovate updates
 ktfmt = { module = "com.facebook:ktfmt", version.ref = "ktfmt" }

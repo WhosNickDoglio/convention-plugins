@@ -21,7 +21,9 @@ internal class AndroidLibraryProjectPlugin : Plugin<Project> {
             pluginManager.apply("com.android.library")
             pluginManager.apply(CACHE_FIX_PLUGIN_ID)
             pluginManager.apply(KOTLIN_ANDROID_PLUGIN_ID)
-            extensions.create("convention", CoreConventionExtension::class.java)
+            val convention = extensions.create("convention", CoreConventionExtension::class.java)
+
+            convention.dependencyGuard { it.configuration("releaseRuntimeClasspath") }
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 

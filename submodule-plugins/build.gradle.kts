@@ -55,6 +55,7 @@ dependencies {
 
     compileOnly(libs.android.gradle)
     compileOnly(libs.dependencyAnalysis.gradle)
+    compileOnly(libs.dependencyGuard.gradle)
     compileOnly(libs.detekt.gradle)
     compileOnly(libs.kotlin.gradle)
     compileOnly(libs.kover.gradle)
