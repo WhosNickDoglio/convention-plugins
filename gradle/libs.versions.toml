@@ -29,7 +29,7 @@ ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt-gradle"}
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 ktfmt-gradle = { module = "com.ncorti.ktfmt.gradle:com.ncorti.ktfmt.gradle.gradle.plugin", version.ref = "ktfmt-gradle" }
 detekt-gradle = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
-android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+android-gradle = { module = "com.android.tools.build:gradle-api", version.ref = "agp" }
 kover-gradle = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
 sortDependencies-gradle = { module = "com.squareup.sort-dependencies:com.squareup.sort-dependencies.gradle.plugin", version.ref = "sort" }
 dependencyAnalysis-gradle = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version.ref = "dependencyAnalysis" }
