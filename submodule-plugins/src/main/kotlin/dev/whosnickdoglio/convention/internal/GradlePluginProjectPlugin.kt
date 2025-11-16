@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention.internal
 
-import dev.whosnickdoglio.convention.CoreConventionExtension
+import dev.whosnickdoglio.convention.JvmConventionExtension
 import dev.whosnickdoglio.convention.internal.configuration.applyLintingPlugins
 import dev.whosnickdoglio.convention.internal.configuration.configureJvm
 import dev.whosnickdoglio.convention.internal.configuration.configureLint
@@ -21,7 +21,7 @@ internal class GradlePluginProjectPlugin : Plugin<Project> {
             pluginManager.apply("java-gradle-plugin")
             pluginManager.apply("com.autonomousapps.plugin-best-practices-plugin")
             pluginManager.apply("com.autonomousapps.testkit")
-            extensions.create("convention", CoreConventionExtension::class.java)
+            extensions.create("convention", JvmConventionExtension::class.java)
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 

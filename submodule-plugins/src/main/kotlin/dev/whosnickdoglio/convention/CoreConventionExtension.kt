@@ -16,7 +16,7 @@ import org.gradle.api.model.ObjectFactory
  */
 public abstract class CoreConventionExtension
 @Inject
-constructor(private val objects: ObjectFactory, private val project: Project) {
+constructor(internal val objects: ObjectFactory, internal val project: Project) {
     /**
      * Enables code coverage reporting using the Kover plugin.
      *

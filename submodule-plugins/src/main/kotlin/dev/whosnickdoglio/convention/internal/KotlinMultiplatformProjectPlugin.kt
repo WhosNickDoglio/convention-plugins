@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention.internal
 
-import dev.whosnickdoglio.convention.CoreConventionExtension
+import dev.whosnickdoglio.convention.KmpConventionExtension
 import dev.whosnickdoglio.convention.internal.configuration.applyLintingPlugins
 import dev.whosnickdoglio.convention.internal.configuration.configureJvm
 import dev.whosnickdoglio.convention.internal.configuration.configureTests
@@ -16,7 +16,7 @@ internal class KotlinMultiplatformProjectPlugin : Plugin<Project> {
         val libs = target.versionCatalog()
         with(target) {
             pluginManager.apply("org.jetbrains.kotlin.multiplatform")
-            extensions.create("convention", CoreConventionExtension::class.java)
+            extensions.create("convention", KmpConventionExtension::class.java)
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 

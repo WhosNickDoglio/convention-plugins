@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention.internal
 
-import dev.whosnickdoglio.convention.CoreConventionExtension
+import dev.whosnickdoglio.convention.AndroidApplicationConventionExtension
 import dev.whosnickdoglio.convention.internal.configuration.applyLintingPlugins
 import dev.whosnickdoglio.convention.internal.configuration.configureAndroid
 import dev.whosnickdoglio.convention.internal.configuration.configureJvm
@@ -21,7 +21,8 @@ internal class AndroidApplicationProjectPlugin : Plugin<Project> {
             pluginManager.apply(CACHE_FIX_PLUGIN_ID)
             pluginManager.apply(KOTLIN_ANDROID_PLUGIN_ID)
             pluginManager.apply(KOTLIN_COMPOSE_PLUGIN_ID)
-            val convention = extensions.create("convention", CoreConventionExtension::class.java)
+            val convention =
+                extensions.create("convention", AndroidApplicationConventionExtension::class.java)
 
             convention.guard { it.dependency("releaseRuntimeClasspath") }
 
