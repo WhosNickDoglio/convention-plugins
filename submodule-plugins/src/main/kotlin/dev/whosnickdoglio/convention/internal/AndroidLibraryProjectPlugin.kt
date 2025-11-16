@@ -14,7 +14,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 internal class AndroidLibraryProjectPlugin : Plugin<Project> {
-    // apply compose guard
     override fun apply(target: Project) {
         val libs = target.versionCatalog()
         with(target) {
@@ -23,7 +22,7 @@ internal class AndroidLibraryProjectPlugin : Plugin<Project> {
             pluginManager.apply(KOTLIN_ANDROID_PLUGIN_ID)
             val convention = extensions.create("convention", CoreConventionExtension::class.java)
 
-            convention.dependencyGuard { it.configuration("releaseRuntimeClasspath") }
+            convention.guard { it.dependency("releaseRuntimeClasspath") }
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 

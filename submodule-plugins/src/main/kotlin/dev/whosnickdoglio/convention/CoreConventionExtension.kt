@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention
 
-import dev.whosnickdoglio.convention.handlers.DependencyGuardHandler
+import dev.whosnickdoglio.convention.handlers.GuardHandler
 import dev.whosnickdoglio.convention.handlers.KoverHandler
 import javax.inject.Inject
 import org.gradle.api.Action
@@ -28,8 +28,11 @@ constructor(private val objects: ObjectFactory, private val project: Project) {
         action.execute(objects.newInstance(KoverHandler::class.java))
     }
 
-    public fun dependencyGuard(action: Action<DependencyGuardHandler>) {
-        project.pluginManager.apply("com.dropbox.dependency-guard")
-        action.execute(objects.newInstance(DependencyGuardHandler::class.java))
+    public fun codeCoverage() {
+        project.pluginManager.apply("org.jetbrains.kotlinx.kover")
+    }
+
+    public fun guard(action: Action<GuardHandler>) {
+        action.execute(objects.newInstance(GuardHandler::class.java))
     }
 }
