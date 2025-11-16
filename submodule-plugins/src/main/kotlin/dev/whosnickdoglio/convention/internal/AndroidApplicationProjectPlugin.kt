@@ -24,7 +24,7 @@ internal class AndroidApplicationProjectPlugin : Plugin<Project> {
             val convention =
                 extensions.create("convention", AndroidApplicationConventionExtension::class.java)
 
-            convention.guard { it.dependency("releaseRuntimeClasspath") }
+            convention.guard { dependency("releaseRuntimeClasspath") }
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 

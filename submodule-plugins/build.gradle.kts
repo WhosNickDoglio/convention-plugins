@@ -2,9 +2,12 @@
 // SPDX-License-Identifier: MIT
 plugins {
     alias(libs.plugins.convention.gradle)
+    alias(libs.plugins.kotlin.sam)
     alias(libs.plugins.kover)
     alias(libs.plugins.publish)
 }
+
+samWithReceiver { annotation(HasImplicitReceiver::class.qualifiedName!!) }
 
 gradleTestKitSupport { disablePublication() }
 

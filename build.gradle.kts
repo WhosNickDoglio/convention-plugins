@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.doctor)
     alias(libs.plugins.convention.gradle) apply false
     alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.sam) apply false
     alias(libs.plugins.detekt) apply false
     alias(libs.plugins.lint) apply false
     alias(libs.plugins.ktfmt) apply false
