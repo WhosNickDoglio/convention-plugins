@@ -4,6 +4,7 @@ package dev.whosnickdoglio.convention.internal
 
 import dev.whosnickdoglio.convention.CoreConventionExtension
 import dev.whosnickdoglio.convention.internal.configuration.applyLintingPlugins
+import dev.whosnickdoglio.convention.internal.configuration.configureAndroid
 import dev.whosnickdoglio.convention.internal.configuration.configureJvm
 import dev.whosnickdoglio.convention.internal.configuration.configureLint
 import dev.whosnickdoglio.convention.internal.configuration.configureTests
@@ -23,11 +24,14 @@ internal class AndroidApplicationProjectPlugin : Plugin<Project> {
             pluginManager.apply("com.android.application")
             pluginManager.apply(CACHE_FIX_PLUGIN_ID)
             pluginManager.apply(KOTLIN_ANDROID_PLUGIN_ID)
+            pluginManager.apply(KOTLIN_COMPOSE_PLUGIN_ID)
             extensions.create("convention", CoreConventionExtension::class.java)
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
 
             applyLintingPlugins(jvmTargetVersion)
+
+            configureAndroid()
 
             configureJvm(
                 toolchainVersion = libs.getVersionOrError("jdk").toInt(),

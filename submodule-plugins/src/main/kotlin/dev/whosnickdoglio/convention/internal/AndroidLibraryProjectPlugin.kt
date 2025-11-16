@@ -4,6 +4,7 @@ package dev.whosnickdoglio.convention.internal
 
 import dev.whosnickdoglio.convention.CoreConventionExtension
 import dev.whosnickdoglio.convention.internal.configuration.applyLintingPlugins
+import dev.whosnickdoglio.convention.internal.configuration.configureAndroid
 import dev.whosnickdoglio.convention.internal.configuration.configureJvm
 import dev.whosnickdoglio.convention.internal.configuration.configureLint
 import dev.whosnickdoglio.convention.internal.configuration.configureTests
@@ -26,6 +27,8 @@ internal class AndroidLibraryProjectPlugin : Plugin<Project> {
             extensions.create("convention", CoreConventionExtension::class.java)
 
             val jvmTargetVersion = libs.getVersionOrError("jdkTarget")
+
+            configureAndroid()
 
             applyLintingPlugins(jvmTargetVersion)
 

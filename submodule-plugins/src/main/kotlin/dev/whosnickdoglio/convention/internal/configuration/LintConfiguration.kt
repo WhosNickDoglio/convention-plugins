@@ -3,18 +3,28 @@
 package dev.whosnickdoglio.convention.internal.configuration
 
 import com.android.build.api.dsl.Lint
+import java.io.File
 import org.gradle.api.Project
 
 internal fun Project.configureLint() {
     pluginManager.apply("com.android.lint")
     extensions.getByType(Lint::class.java).apply {
-        htmlReport = false
-        xmlReport = false
-        textReport = true
-        absolutePaths = false
-        checkTestSources = true
-        warningsAsErrors = true
-        baseline = file("lint-baseline.xml")
-        disable.add("GradleDependency")
+        configure(baselineLineFile = file("lint-baseline.xml"))
+    }
+}
+
+internal fun Lint.configure(baselineLineFile: File, disabledRules: Set<String> = emptySet()) {
+    htmlReport = false
+    xmlReport = false
+    textReport = true
+    absolutePaths = false
+    checkTestSources = true
+    warningsAsErrors = true
+    baseline = baselineLineFile
+    disable.apply {
+        addAll(disabledRules)
+        add("GradleDependency")
+        add("ObsoleteLintCustomCheck")
+        add("AndroidGradlePluginVersion")
     }
 }
