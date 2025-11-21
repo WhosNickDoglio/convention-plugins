@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Add WIP plugins for Android app (`dev.whosnickdoglio.convention.android.app`), Android Library (
+  `dev.whosnickdoglio.convention.android.library`) and KMP projects (`dev.whosnickdoglio.convention.kmp`)
+- Expose configuration for enabling code coverage dependency guard and compose guard. 
+
 ## 0.2.0
 
 ## Changed
