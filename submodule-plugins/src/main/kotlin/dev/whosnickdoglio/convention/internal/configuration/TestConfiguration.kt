@@ -10,7 +10,10 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 internal fun Project.configureTests() {
     tasks.withType(Test::class.java).configureEach {
         forkEvery = FORK_EVERY_TEST
-        maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).takeIf { it > 0 } ?: 1
+        maxParallelForks =
+            (Runtime.getRuntime().availableProcessors() / 2).takeIf { availableProcessors ->
+                availableProcessors > 0
+            } ?: 1
         testLogging {
             exceptionFormat = TestExceptionFormat.FULL
             events = setOf(TestLogEvent.SKIPPED, TestLogEvent.PASSED, TestLogEvent.FAILED)
