@@ -43,7 +43,9 @@ internal fun Project.configureAndroid() {
                         variant.enable = false
                     } else {
                         val enableAndroidTests =
-                            project.layout.projectDirectory.asFile.resolve("src/androidTest").exists()
+                            project.layout.projectDirectory.asFile
+                                .resolve("src/androidTest")
+                                .exists()
                         variant.androidTest.enable = enableAndroidTests
                         variant.androidTest.debuggable = enableAndroidTests
                     }
@@ -62,9 +64,7 @@ private fun ApplicationExtension.configure(
     libs: VersionCatalog,
     baselineFile: File,
 ) {
-    defaultConfig {
-        targetSdk = libs.findVersion("target-sdk").get().requiredVersion.toInt()
-    }
+    defaultConfig { targetSdk = libs.findVersion("target-sdk").get().requiredVersion.toInt() }
 
     buildTypes { debug { matchingFallbacks += "release" } }
 
