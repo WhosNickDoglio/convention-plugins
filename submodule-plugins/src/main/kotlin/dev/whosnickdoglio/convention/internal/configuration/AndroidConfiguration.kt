@@ -18,7 +18,7 @@ internal fun Project.configureAndroid() {
         extensions.findByType(LibraryExtension::class.java)
             ?: extensions.findByType(ApplicationExtension::class.java)
 
-    val namespace = this.path.replace("/", ".").replace(":", ".")
+    val namespace = this.path.replace("/", "").replace(":", "").replace("-", ".")
 
     if (android == null) return
     val libs = versionCatalog()
@@ -54,14 +54,20 @@ private fun ApplicationExtension.configure(
     baselineFile: File,
 ) {
     defaultConfig {
-        applicationId = ""
         targetSdk = libs.findVersion("target-sdk").get().requiredVersion.toInt()
+        minSdk = libs.findVersion("target-sdk").get().requiredVersion.toInt()
         // TODO expose these
         versionCode = 1
         versionName = "1.0"
     }
 
-    compileOptions { isCoreLibraryDesugaringEnabled = true }
+    buildTypes { debug { matchingFallbacks += "release" } }
+
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.toVersion(libs.getVersionOrError("jdkTarget"))
+        targetCompatibility = JavaVersion.toVersion(libs.getVersionOrError("jdkTarget"))
+    }
 
     configureAndroid(namespace, libs, baselineFile)
 }

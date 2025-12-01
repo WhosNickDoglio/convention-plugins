@@ -6,9 +6,18 @@ import com.android.build.api.dsl.Lint
 import java.io.File
 import org.gradle.api.Project
 
+internal val agpPlugins = listOf("com.android.application", "com.android.library")
+
+internal fun Project.isAndroidProject(): Boolean =
+    agpPlugins.any { id -> pluginManager.hasPlugin(id) }
+
 internal fun Project.configureLint() {
-    pluginManager.apply("com.android.lint")
-    extensions.getByType(Lint::class.java).configure(baselineLineFile = file("lint-baseline.xml"))
+    if (!isAndroidProject()) {
+        pluginManager.apply("com.android.lint")
+        extensions
+            .getByType(Lint::class.java)
+            .configure(baselineLineFile = file("lint-baseline.xml"))
+    }
 }
 
 internal fun Lint.configure(baselineLineFile: File, disabledRules: Set<String> = emptySet()) {
