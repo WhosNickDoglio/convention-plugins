@@ -6,7 +6,7 @@ package dev.whosnickdoglio.convention.internal.configuration
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
-import com.android.build.api.variant.AndroidComponentsExtension
+import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import java.io.File
 import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion
@@ -37,8 +37,17 @@ internal fun Project.configureAndroid() {
                 libs = libs,
                 baselineFile = file("lint-baseline.xml"),
             )
-            with(extensions.getByType(AndroidComponentsExtension::class.java)) {
-                beforeVariants(selector().withBuildType("debug")) { it.enable = false }
+            with(extensions.getByType(LibraryAndroidComponentsExtension::class.java)) {
+                beforeVariants(selector().all()) { variant ->
+                    if (variant.name == "debug") {
+                        variant.enable = false
+                    } else {
+                        val enableAndroidTests =
+                            project.layout.projectDirectory.asFile.resolve("src/androidTest").exists()
+                        variant.androidTest.enable = enableAndroidTests
+                        variant.androidTest.debuggable = enableAndroidTests
+                    }
+                }
             }
         }
 
@@ -55,10 +64,6 @@ private fun ApplicationExtension.configure(
 ) {
     defaultConfig {
         targetSdk = libs.findVersion("target-sdk").get().requiredVersion.toInt()
-        minSdk = libs.findVersion("target-sdk").get().requiredVersion.toInt()
-        // TODO expose these
-        versionCode = 1
-        versionName = "1.0"
     }
 
     buildTypes { debug { matchingFallbacks += "release" } }
