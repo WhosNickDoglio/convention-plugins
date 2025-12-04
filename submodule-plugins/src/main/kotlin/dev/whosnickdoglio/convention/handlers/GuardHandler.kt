@@ -4,6 +4,7 @@
 package dev.whosnickdoglio.convention.handlers
 
 import com.dropbox.gradle.plugins.dependencyguard.DependencyGuardPluginExtension
+import dev.whosnickdoglio.convention.internal.KOTLIN_COMPOSE_PLUGIN_ID
 import javax.inject.Inject
 import org.gradle.api.Project
 
@@ -17,7 +18,7 @@ public abstract class GuardHandler @Inject constructor(private val project: Proj
 
     public fun compose(): Unit =
         with(project) {
-            if (pluginManager.hasPlugin("KOTLIN_COMPOSE_PLUGIN_ID")) {
+            if (pluginManager.hasPlugin(KOTLIN_COMPOSE_PLUGIN_ID)) {
                 pluginManager.apply("com.joetr.compose.guard")
             } else {
                 logger.error(
