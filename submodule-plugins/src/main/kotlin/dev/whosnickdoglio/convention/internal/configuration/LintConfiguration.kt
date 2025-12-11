@@ -18,6 +18,7 @@ internal fun Project.configureLint() {
             .getByType(Lint::class.java)
             .configure(baselineLineFile = file("lint-baseline.xml"))
     }
+    tasks.named("check").configure { dependsOn(tasks.named("lint")) }
 }
 
 internal fun Lint.configure(baselineLineFile: File, disabledRules: Set<String> = emptySet()) {
