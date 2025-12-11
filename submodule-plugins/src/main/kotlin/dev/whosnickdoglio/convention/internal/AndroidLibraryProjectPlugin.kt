@@ -19,7 +19,6 @@ internal class AndroidLibraryProjectPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply("com.android.library")
             pluginManager.apply(CACHE_FIX_PLUGIN_ID)
-            pluginManager.apply(KOTLIN_ANDROID_PLUGIN_ID)
             val convention =
                 extensions.create("convention", AndroidLibraryConventionExtension::class.java)
 
