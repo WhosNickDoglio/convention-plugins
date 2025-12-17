@@ -6,7 +6,7 @@ kotlin = "2.3.0"
 ktfmt-gradle = "0.25.0"
 detekt = "1.23.8"
 kover = "0.9.4"
-jdk = "24"
+jdk = "25"
 jdkTarget = "17"
 sort = "0.16"
 
