@@ -45,10 +45,6 @@ gradlePlugin {
     }
 }
 
-tasks.withType(AbstractPublishToMaven::class.java).configureEach {
-    dependsOn(tasks.withType<Sign>())
-}
-
 dependencies {
     functionalTestImplementation(libs.junit)
     functionalTestImplementation(libs.testKit.supprt)
