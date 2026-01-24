@@ -7,15 +7,14 @@ import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.jvm.toolchain.JvmVendorSpec
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 @OptIn(ExperimentalAbiValidation::class)
 internal fun Project.configureJvm(toolchainVersion: Int, jvmTargetVersion: Int) {
-    extensions.getByType(KotlinProjectExtension::class.java).apply {
+    extensions.getByType(KotlinBaseExtension::class.java).apply {
         explicitApi()
-        //        abiValidation { enabled.set(true) }
         jvmToolchain {
             languageVersion.set(JavaLanguageVersion.of(toolchainVersion))
             vendor.set(JvmVendorSpec.AZUL)
@@ -36,12 +35,4 @@ internal fun Project.configureJvm(toolchainVersion: Int, jvmTargetVersion: Int) 
         sourceCompatibility = jvmTargetVersion.toString()
         targetCompatibility = jvmTargetVersion.toString()
     }
-
-    // youtrack.jetbrains.com/issue/KT-78525
-    tasks.named("check").configure { dependsOn(tasks.named("checkLegacyAbi")) }
 }
-
-// TODO
-// private fun KotlinProjectExtension.abiValidation(configure: Action<AbiValidationExtension>) =
-//    (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("abiValidation",
-// configure)
