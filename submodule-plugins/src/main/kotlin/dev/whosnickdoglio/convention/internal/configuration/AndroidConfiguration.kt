@@ -54,7 +54,7 @@ internal fun Project.configureAndroid() {
         }
 
         else -> {
-            GradleException("Unknown Android extension")
+            throw GradleException("Unknown Android extension")
         }
     }
 }
@@ -77,7 +77,7 @@ private fun ApplicationExtension.configure(
     configureAndroid(namespace, libs, baselineFile)
 }
 
-private fun CommonExtension<*, *, *, *, *, *>.configureAndroid(
+private fun CommonExtension.configureAndroid(
     androidNameSpace: String,
     libs: VersionCatalog,
     baselineFile: File,
@@ -85,11 +85,9 @@ private fun CommonExtension<*, *, *, *, *, *>.configureAndroid(
     namespace = androidNameSpace
 
     compileSdk = libs.findVersion("compile-sdk").get().requiredVersion.toInt()
-    defaultConfig { minSdk = libs.findVersion("min-sdk").get().requiredVersion.toInt() }
+    defaultConfig.minSdk = libs.findVersion("min-sdk").get().requiredVersion.toInt()
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
+    compileOptions.sourceCompatibility = JavaVersion.VERSION_17
+    compileOptions.targetCompatibility = JavaVersion.VERSION_17
     lint.configure(baselineLineFile = baselineFile)
 }

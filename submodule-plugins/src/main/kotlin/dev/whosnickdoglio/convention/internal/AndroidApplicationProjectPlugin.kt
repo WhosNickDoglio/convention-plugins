@@ -19,7 +19,6 @@ internal class AndroidApplicationProjectPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply("com.android.application")
             pluginManager.apply(CACHE_FIX_PLUGIN_ID)
-            pluginManager.apply(KOTLIN_ANDROID_PLUGIN_ID)
             pluginManager.apply(KOTLIN_COMPOSE_PLUGIN_ID)
             val convention =
                 extensions.create("convention", AndroidApplicationConventionExtension::class.java)
