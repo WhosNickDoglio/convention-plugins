@@ -44,4 +44,4 @@ testKit-truth = { module = "com.autonomousapps:gradle-testkit-truth", version = 
 
 junit = { module = "junit:junit", version = "4.13.2" }
 truth = { module = "com.google.truth:truth", version = "1.4.5" }
-testParameterInjector = { module = "com.google.testparameterinjector:test-parameter-injector", version = "1.20" }
+testParameterInjector = { module = "com.google.testparameterinjector:test-parameter-injector", version = "1.21" }
