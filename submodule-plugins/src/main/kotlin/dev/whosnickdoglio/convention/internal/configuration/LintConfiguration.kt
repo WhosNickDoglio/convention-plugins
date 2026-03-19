@@ -8,8 +8,9 @@ import org.gradle.api.Project
 
 internal val agpPlugins = listOf("com.android.application", "com.android.library")
 
-internal fun Project.isAndroidProject(): Boolean =
-    agpPlugins.any { id -> pluginManager.hasPlugin(id) }
+internal fun Project.isAndroidProject(): Boolean = agpPlugins.any { id ->
+    pluginManager.hasPlugin(id)
+}
 
 internal fun Project.configureLint() {
     if (!isAndroidProject()) {
