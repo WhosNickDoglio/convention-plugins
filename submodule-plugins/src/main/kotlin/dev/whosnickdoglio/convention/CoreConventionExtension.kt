@@ -2,8 +2,7 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.convention
 
-import dev.whosnickdoglio.convention.handlers.GuardHandler
-import dev.whosnickdoglio.convention.handlers.KoverHandler
+import dev.whosnickdoglio.convention.handlers.PublishedHandler
 import javax.inject.Inject
 import org.gradle.api.Action
 import org.gradle.api.Project
@@ -16,23 +15,9 @@ import org.gradle.api.model.ObjectFactory
  */
 public abstract class CoreConventionExtension
 @Inject
-constructor(internal val objects: ObjectFactory, internal val project: Project) {
-    /**
-     * Enables code coverage reporting using the Kover plugin.
-     *
-     * This method applies the 'org.jetbrains.kotlinx.kover' plugin to the project, which provides
-     * code coverage analysis for Kotlin projects.
-     */
-    public fun codeCoverage(action: Action<KoverHandler>) {
-        project.pluginManager.apply("org.jetbrains.kotlinx.kover")
-        action.execute(objects.newInstance(KoverHandler::class.java))
-    }
+constructor(objects: ObjectFactory, internal val project: Project) {
 
-    public fun codeCoverage() {
-        project.pluginManager.apply("org.jetbrains.kotlinx.kover")
-    }
+    private val publishHandler = objects.newInstance(PublishedHandler::class.java)
 
-    public fun guard(action: Action<GuardHandler>) {
-        action.execute(objects.newInstance(GuardHandler::class.java))
-    }
+    public fun published(action: Action<PublishedHandler>): Unit = action.execute(publishHandler)
 }
