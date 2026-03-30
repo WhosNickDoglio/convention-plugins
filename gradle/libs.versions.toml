@@ -5,6 +5,7 @@ guard = "0.5.0"
 kotlin = "2.3.20"
 ktfmt-gradle = "0.26.0"
 detekt = "2.0.0-alpha.2"
+dokka = "2.2.0"
 kover = "0.9.8"
 jdk = "25"
 jdkTarget = "17"
@@ -17,6 +18,7 @@ lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.1" }
 dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependencyAnalysis" }
 dependencyGuard = { id = "com.dropbox.dependency-guard", version.ref = "guard" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-sam = { id = "org.jetbrains.kotlin.plugin.sam.with.receiver", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
@@ -24,13 +26,14 @@ sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort"
 testKit = { id = "com.autonomousapps.testkit", version = "0.17" }
 publish = { id = "com.vanniktech.maven.publish", version = "0.36.0" }
 bestPractices = { id = "com.autonomousapps.plugin-best-practices-plugin", version = "0.10" }
-ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt-gradle"}
+ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt-gradle" }
 
 
 [libraries]
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 ktfmt-gradle = { module = "com.ncorti.ktfmt.gradle:com.ncorti.ktfmt.gradle.gradle.plugin", version.ref = "ktfmt-gradle" }
 detekt-gradle = { module = "dev.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 android-gradle = { module = "com.android.tools.build:gradle-api", version.ref = "agp" }
 kover-gradle = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
 sortDependencies-gradle = { module = "com.squareup.sort-dependencies:com.squareup.sort-dependencies.gradle.plugin", version.ref = "sort" }

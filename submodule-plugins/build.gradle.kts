@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.convention.gradle)
     alias(libs.plugins.kotlin.sam)
     alias(libs.plugins.kover)
+    alias(libs.plugins.dokka)
     alias(libs.plugins.publish)
 }
 
@@ -56,6 +57,7 @@ dependencies {
     compileOnly(libs.dependencyAnalysis.gradle)
     compileOnly(libs.dependencyGuard.gradle)
     compileOnly(libs.detekt.gradle)
+    compileOnly(libs.dokka.gradle)
     compileOnly(libs.kotlin.gradle)
     compileOnly(libs.kover.gradle)
     compileOnly(libs.ktfmt.gradle)
