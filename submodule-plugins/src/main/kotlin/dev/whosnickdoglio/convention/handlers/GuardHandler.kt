@@ -22,7 +22,7 @@ public abstract class GuardHandler @Inject constructor(private val project: Proj
                 pluginManager.apply("com.joetr.compose.guard")
             } else {
                 logger.error(
-                    "Cannot apply Compose Guard to a project without the Kotlin Compose plugin."
+                    "Cannot apply the Compose Guard to a project without the Kotlin Compose plugin."
                 )
             }
         }
