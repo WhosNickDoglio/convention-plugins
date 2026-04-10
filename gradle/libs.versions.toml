@@ -23,7 +23,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-sam = { id = "org.jetbrains.kotlin.plugin.sam.with.receiver", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
-testKit = { id = "com.autonomousapps.testkit", version = "0.17" }
+testKit = { id = "com.autonomousapps.testkit", version = "0.18" }
 publish = { id = "com.vanniktech.maven.publish", version = "0.36.0" }
 bestPractices = { id = "com.autonomousapps.plugin-best-practices-plugin", version = "0.10" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt-gradle" }
