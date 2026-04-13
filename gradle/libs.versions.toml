@@ -43,7 +43,7 @@ dependencyGuard-gradle = { module = "com.dropbox.dependency-guard:dependency-gua
 androidx-gradle-lints = { module = "androidx.lint:lint-gradle", version = "1.0.0-alpha06" }
 
 testKit-supprt = { module = "com.autonomousapps:gradle-testkit-support", version = "0.23" }
-testKit-truth = { module = "com.autonomousapps:gradle-testkit-truth", version = "1.6.1" }
+testKit-truth = { module = "com.autonomousapps:gradle-testkit-truth", version = "1.7.0" }
 
 junit = { module = "junit:junit", version = "4.13.2" }
 truth = { module = "com.google.truth:truth", version = "1.4.5" }
