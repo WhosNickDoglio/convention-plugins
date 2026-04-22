@@ -40,7 +40,7 @@ sortDependencies-gradle = { module = "com.squareup.sort-dependencies:com.squareu
 dependencyAnalysis-gradle = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version.ref = "dependencyAnalysis" }
 dependencyGuard-gradle = { module = "com.dropbox.dependency-guard:dependency-guard", version.ref = "guard" }
 
-androidx-gradle-lints = { module = "androidx.lint:lint-gradle", version = "1.0.0-alpha06" }
+androidx-gradle-lints = { module = "androidx.lint:lint-gradle", version = "1.0.0-beta01" }
 
 testKit-supprt = { module = "com.autonomousapps:gradle-testkit-support", version = "0.23" }
 testKit-truth = { module = "com.autonomousapps:gradle-testkit-truth", version = "1.7.0" }
