@@ -9,7 +9,7 @@ dokka = "2.1.0"
 kover = "0.9.8"
 jdk = "25"
 jdkTarget = "17"
-sort = "0.16"
+sort = "0.17.1"
 
 [plugins]
 convention-gradle = { id = "dev.whosnickdoglio.convention.gradle", version = "0.3.0" }
