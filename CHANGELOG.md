@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 0.4.0
+
+### Changed
+ 
+- Reworked the `publish` DSL to make it easier to configure features around validating and documentation for artifacts
+  you want to publish.
+
 ## 0.3.0
 
 ### Added
@@ -15,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `dev.whosnickdoglio.convention.android.library`) and KMP projects (`dev.whosnickdoglio.convention.kmp`)
 - Expose configuration for enabling code coverage dependency guard and compose guard. 
 
-## Changed
+### Changed
 - Update to use Detekt 2 alphas 
 
 ## 0.2.0
