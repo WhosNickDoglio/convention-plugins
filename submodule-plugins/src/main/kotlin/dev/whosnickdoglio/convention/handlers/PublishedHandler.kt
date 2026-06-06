@@ -9,10 +9,8 @@ import javax.inject.Inject
 import org.gradle.api.Action
 import org.gradle.api.Project
 import org.gradle.api.model.ObjectFactory
-import org.gradle.api.plugins.ExtensionAware
 import org.jetbrains.dokka.gradle.DokkaPlugin
 import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
-import org.jetbrains.kotlin.gradle.dsl.abi.AbiValidationExtension
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 public abstract class PublishedHandler
@@ -62,19 +60,15 @@ constructor(private val objectFactory: ObjectFactory, private val project: Proje
         with(project) {
             if (pluginManager.hasPlugin("com.android.base")) {
                 logger.warn(
-                    "Cannot enable BCV, AGP 9 currently does not support it: https://youtrack.jetbrains.com/projects/KT/issues/KT-83410/"
+                    "Cannot enable BCV, AGP 9 currently does not " +
+                        "support it: https://youtrack.jetbrains.com/projects/KT/issues/KT-83410/"
                 )
                 return@with
             }
 
-            extensions.getByType(KotlinBaseExtension::class.java).apply {
-                abiValidation.enabled.set(true)
-            }
+            extensions.getByType(KotlinBaseExtension::class.java).apply { abiValidation() }
 
             // youtrack.jetbrains.com/issue/KT-78525
             tasks.named("check").configure { dependsOn(tasks.named("checkLegacyAbi")) }
         }
 }
-
-private val KotlinBaseExtension.abiValidation: AbiValidationExtension
-    get() = (this as ExtensionAware).extensions.getByType(AbiValidationExtension::class.java)
