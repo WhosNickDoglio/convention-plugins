@@ -23,9 +23,6 @@ internal fun Project.configureLint() {
 }
 
 internal fun Lint.configure(baselineLineFile: File, disabledRules: Set<String> = emptySet()) {
-    htmlReport = false
-    xmlReport = false
-    textReport = true
     absolutePaths = false
     checkTestSources = true
     warningsAsErrors = true

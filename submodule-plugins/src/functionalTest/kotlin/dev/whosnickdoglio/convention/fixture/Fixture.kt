@@ -31,12 +31,12 @@ private val defaultPlugins: List<Plugin>
                 "dev.whosnickdoglio.convention.kotlin",
                 AbstractGradleProject.PLUGIN_UNDER_TEST_VERSION,
             ),
-            Plugin("org.jetbrains.kotlin.jvm", "2.2.10"),
-            Plugin("io.gitlab.arturbosch.detekt", "1.23.8"),
-            Plugin("com.autonomousapps.dependency-analysis", "2.19.0"),
-            Plugin("com.squareup.sort-dependencies", "0.14"),
-            Plugin("com.android.lint", "8.12.0"),
-            Plugin("com.ncorti.ktfmt.gradle", "0.25.0"),
+            Plugin("org.jetbrains.kotlin.jvm", "2.4.10"),
+            Plugin("dev.detekt", "2.0.0-alpha.5"),
+            Plugin("com.autonomousapps.dependency-analysis", "3.16.1"),
+            Plugin("com.squareup.sort-dependencies", "0.20.0"),
+            Plugin("com.android.lint", "9.3.0"),
+            Plugin("com.ncorti.ktfmt.gradle", "0.26.0"),
         )
 
 private const val VERSION_CATALOG =
@@ -44,17 +44,17 @@ private const val VERSION_CATALOG =
                 [versions]
                 jdk = "25"
                 jdkTarget = "17"
-                kotlin = "2.2.10"
-                detekt = "1.23.8"
-                dependencyAnalysis = "2.19.0"
-                ktfmt-gradle = "0.25.0"
+                kotlin = "2.4.10"
+                detekt = "2.0.0-alpha.5"
+                dependencyAnalysis = "3.16.1"
+                ktfmt-gradle = "0.26.0"
 
                 [plugins]
                 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-                detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+                detekt = { id = "dev.detekt", version.ref = "detekt" }
                 dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependencyAnalysis" }
-                sort-dependencies = { id = "com.squareup.sort-dependencies", version = "0.14" }
-                android-lint = { id = "com.android.lint", version = "8.9.0" }
+                sort-dependencies = { id = "com.squareup.sort-dependencies", version = "0.20.0" }
+                android-lint = { id = "com.android.lint", version = "9.3.0" }
                 ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt-gradle"}
                 """
 
