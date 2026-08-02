@@ -60,8 +60,6 @@ dependencies {
     compileOnly(libs.dokka.gradle)
     compileOnly(libs.kotlin.gradle)
     compileOnly(libs.kover.gradle)
-    compileOnly(libs.ktfmt.gradle)
-    compileOnly(libs.sortDependencies.gradle)
 
     testImplementation(libs.junit)
     testImplementation(libs.testParameterInjector)
