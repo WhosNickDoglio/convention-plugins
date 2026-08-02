@@ -40,12 +40,23 @@ jobs:
         uses: danger/kotlin@672772457f8d6e76344bb111ce3a88341cbc4881 # 1.3.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  Kempt:
+    runs-on: ubuntu-latest
+    needs: [ Build ]
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: ./.github/actions/setup
+        with:
+          encryption_key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+      - uses: ZacSweers/kempt@main
+        with:
+          cache: true
   Lint:
     runs-on: ubuntu-latest
     needs: [ Build ]
     strategy:
       matrix:
-        command: [ ktfmtCheck, lint, checkSortDependencies, validatePlugins, checkBestPractices ]
+        command: [ lint, validatePlugins, checkBestPractices ]
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/setup
