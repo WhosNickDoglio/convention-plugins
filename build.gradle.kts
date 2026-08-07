@@ -3,7 +3,7 @@
 
 plugins {
     // https://github.com/runningcode/gradle-doctor/issues/302
-//    alias(libs.plugins.doctor)
+    //    alias(libs.plugins.doctor)
     alias(libs.plugins.convention.gradle) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.sam) apply false

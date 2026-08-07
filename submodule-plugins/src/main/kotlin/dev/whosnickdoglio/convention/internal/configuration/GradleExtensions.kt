@@ -36,6 +36,4 @@ internal fun Project.applyLintingPlugins(jvmTarget: String) {
     } catch (ignored: Exception) {}
 
     pluginManager.apply("com.autonomousapps.dependency-analysis")
-    pluginManager.apply("com.squareup.sort-dependencies")
-    configureKtfmt()
 }
