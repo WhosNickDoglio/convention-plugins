@@ -8,7 +8,7 @@ detekt = "2.0.0-alpha.6"
 dokka = "2.1.0"
 kover = "0.9.9"
 jdk = "26"
-jdkTarget = "17"
+jdkTarget = "21"
 sort = "0.20.0"
 
 [plugins]
@@ -39,6 +39,7 @@ kover-gradle = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.r
 sortDependencies-gradle = { module = "com.squareup.sort-dependencies:com.squareup.sort-dependencies.gradle.plugin", version.ref = "sort" }
 dependencyAnalysis-gradle = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version.ref = "dependencyAnalysis" }
 dependencyGuard-gradle = { module = "com.dropbox.dependency-guard:dependency-guard", version.ref = "guard" }
+bgp = { module = "com.slack.foundry:better-gradle-properties", version = "0.36.0" }
 
 androidx-gradle-lints = { module = "androidx.lint:lint-gradle", version = "1.0.0" }
 
