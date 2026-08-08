@@ -62,6 +62,7 @@ dependencies {
     compileOnly(libs.kover.gradle)
     compileOnly(libs.ktfmt.gradle)
     compileOnly(libs.sortDependencies.gradle)
+    implementation(libs.bgp)
 
     testImplementation(libs.junit)
     testImplementation(libs.testParameterInjector)
