@@ -48,7 +48,7 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           encryption_key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
-      - uses: ZacSweers/kempt@f15f70a9ad0d82c3948537e84b5bc1c50e7203d3 # main
+      - uses: ZacSweers/kempt@5bcf5b3c4aba11fa670368e7b7f29499845501b1 # main
         with:
           cache: true
   Lint:
