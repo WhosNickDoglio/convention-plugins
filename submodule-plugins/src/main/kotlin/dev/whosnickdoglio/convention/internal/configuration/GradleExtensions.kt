@@ -3,6 +3,7 @@
 package dev.whosnickdoglio.convention.internal.configuration
 
 import dev.detekt.gradle.Detekt
+import dev.whosnickdoglio.convention.ConventionOptions
 import kotlin.jvm.optionals.getOrNull
 import org.gradle.api.GradleException
 import org.gradle.api.Project
@@ -26,6 +27,7 @@ internal fun VersionCatalog.getVersionOrError(key: String): String {
 }
 
 internal fun Project.applyLintingPlugins(jvmTarget: String) {
+    val options = ConventionOptions(this)
     try {
         logger.info("Attempting to apply Detekt 2 plugin")
         pluginManager.apply("dev.detekt")
@@ -34,6 +36,7 @@ internal fun Project.applyLintingPlugins(jvmTarget: String) {
             exclude { fileTreeElement -> fileTreeElement.file.path.contains("build/generated") }
         }
     } catch (ignored: Exception) {}
+
 
     pluginManager.apply("com.autonomousapps.dependency-analysis")
 }
