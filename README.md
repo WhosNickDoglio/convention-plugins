@@ -35,9 +35,7 @@ Plugins that are applied and expected to be on the classpath:
 - `org.jetbrains.kotlin.jvm`
 - `io.gitlab.arturbosch.detekt`
 - `com.autonomousapps.dependency-analysis`
-- `com.squareup.sort-dependencies`
 - `com.android.lint`
-- `com.ncorti.ktfmt.gradle`
 
 
 Also configures JDK toolchains and the java target version
@@ -51,9 +49,7 @@ Plugins that are applied and expected to be on the classpath:
 - `org.jetbrains.kotlin.jvm`
 - `io.gitlab.arturbosch.detekt`
 - `com.autonomousapps.dependency-analysis`
-- `com.squareup.sort-dependencies`
 - `com.android.lint`
-- `com.ncorti.ktfmt.gradle`
 - `com.autonomousapps.plugin-best-practices-plugin`
 - `com.autonomousapps.testkit` (For functional tests fo your plugin)
 
