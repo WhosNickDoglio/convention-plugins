@@ -8,10 +8,8 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.jvm.toolchain.JvmVendorSpec
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
-import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-@OptIn(ExperimentalAbiValidation::class)
 internal fun Project.configureJvm(toolchainVersion: Int, jvmTargetVersion: Int) {
     extensions.getByType(KotlinBaseExtension::class.java).apply {
         explicitApi()
