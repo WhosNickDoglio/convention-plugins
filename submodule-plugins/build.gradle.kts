@@ -60,6 +60,7 @@ dependencies {
     compileOnly(libs.dokka.gradle)
     compileOnly(libs.kotlin.gradle)
     compileOnly(libs.kover.gradle)
+    implementation(libs.bgp)
 
     testImplementation(libs.junit)
     testImplementation(libs.testParameterInjector)
