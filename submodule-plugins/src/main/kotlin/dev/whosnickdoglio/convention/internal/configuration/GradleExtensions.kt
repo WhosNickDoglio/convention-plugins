@@ -26,14 +26,10 @@ internal fun VersionCatalog.getVersionOrError(key: String): String {
 }
 
 internal fun Project.applyLintingPlugins(jvmTarget: String) {
-    try {
-        logger.info("Attempting to apply Detekt 2 plugin")
-        pluginManager.apply("dev.detekt")
-        tasks.withType(Detekt::class.java).configureEach {
-            this.jvmTarget.set(jvmTarget)
-            exclude { fileTreeElement -> fileTreeElement.file.path.contains("build/generated") }
-        }
-    } catch (ignored: Exception) {}
-
+    pluginManager.apply("dev.detekt")
+    tasks.withType(Detekt::class.java).configureEach {
+        this.jvmTarget.set(jvmTarget)
+        exclude { fileTreeElement -> fileTreeElement.file.path.contains("build/generated") }
+    }
     pluginManager.apply("com.autonomousapps.dependency-analysis")
 }
